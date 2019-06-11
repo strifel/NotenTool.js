@@ -1,0 +1,16 @@
+.percentageInput{
+    border: none;
+    border-bottom: grey solid 1px;
+    width: 30px;
+    -moz-appearance: textfield;
+}
+.percentageInput::-webkit-inner-spin-button,
+.percentageInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin:0;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <title>Edit Sheet</title>
     <link rel="stylesheet" href="css/editSheet.css">
+    <script src="js/editSheet.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
+<h1 class="display-4 text-center">Create new Grade scheme</h1>
+<li class="divider"></li>
+<div class="center">
+    <div id="inputTable">
+        <table class="table table-bordered">
+            <tbody id="inputsPercentage">
+            <script>
+                const inputs = document.getElementById('inputsPercentage');
+                let inputsHTML = '';
+                for (let grade = 15; grade >= 0; grade--) {
+                    inputsHTML += '<tr><td>' + grade + '</td><td><input type="number" min="0" max="100" class="percentageInput" id="grade' + grade + '" onchange=validatePercentage(' + grade + ') value="' + (85 + grade) + '"><small>%</small></td></tr>'
+                }
+                inputs.innerHTML = inputsHTML;
+            </script>
+            </tbody>
+        </table>
+        <div class="center">
+            <button type="button" class="btn btn-success float-right" onclick="downloadConfig()">Save</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
