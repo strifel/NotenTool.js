@@ -5,7 +5,6 @@
     <title>Calculate Grades</title>
     <link rel="stylesheet" href="css/calc.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="js/modalHelper.js"></script>
 </head>
 <body>
 <button class="btn btn-success">Load grade scheme</button>
@@ -18,7 +17,7 @@
             <td scope="col">Points</td>
             <td scope="col">Grade</td>
             <td scope="col">Edit</td>
-            <td><button class="btn btn-primary" onclick="document.getElementById('addModal').style.display = 'block';">+</button></td>
+            <td><div class="btn-group"><button class="btn btn-primary" onclick="document.getElementById('addModal').style.display = 'block';">+</button><button onclick="downloadData()" class="btn btn-primary">⇓</button></div></td>
         </tr>
         </thead>
         <tbody id="table">
@@ -30,15 +29,17 @@
     <div class="modal-content">
         <label for="newUser_name">Name: </label><input id="newUser_name"><br><br>
         <label for="newUser_points">Points: </label><input id="newUser_points" min=0 type="number"><br><br><br><br>
-        <button id="newUser_add" class="btn btn-primary">Add pupil</button>
+        <button id="newUser_add" class="btn btn-primary" onclick="let name = document.getElementById('newUser_name').value;addPupil(name);setPoints(name, parseInt(document.getElementById('newUser_points').value));calculateGrades(name);document.getElementById('addModal').style.display = 'none';">Add pupil</button>
     </div>
 </div>
 <div id="editModal" class="modal">
     <div class="modal-content">
         <p>Name: </p><p id="editUser_name"></p>
         <label for="editUser_points">Points: </label><input id="editUser_points" min=0 type="number"><br><br><br><br>
-        <button id="editUser_add" class="btn btn-primary">Edit pupil</button>
+        <button id="editUser_add" class="btn btn-primary" onclick="let name = document.getElementById('editUser_name').innerText;setPoints(name, parseInt(document.getElementById('editUser_points').value));calculateGrades(name);document.getElementById('editModal').style.display = 'none';">Edit pupil</button>
     </div>
 </div>
 </body>
+<script src="js/modalHelper.js"></script>
+<script src="js/notenTool.js"></script>
 </html>
