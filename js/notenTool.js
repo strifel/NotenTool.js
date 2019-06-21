@@ -35,6 +35,7 @@ function calculateGrades(name) {
     if (percentages.hasOwnProperty(percentage)) {
         document.getElementById('row_' + name + '_grades').innerText = percentages[percentage]
     }
+    calculateStats();
 }
 function downloadData() {
     let link = document.createElement('a');
