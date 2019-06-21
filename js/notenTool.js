@@ -8,7 +8,7 @@ function addPupil(name) {
 <td id="row_${name}_name" class="row_name">${name}</td>
 <td id="row_${name}_points" class="row_points"></td>
 <td id="row_${name}_grades" class="row_grades"></td>
-<td class="row_edit"><div class="btn-group"><button onclick="document.getElementById('row_${name}').remove();" class="btn btn-danger">\t&#128465;</button><button onclick="document.getElementById('editUser_name').innerText = '${name}';document.getElementById('editModal').style.display = 'block';" class="btn btn-warning">✏</button></div></td>`
+<td class="row_edit"><div class="btn-group"><button onclick="document.getElementById('row_${name}').remove();calculateStats()" class="btn btn-danger">\t&#128465;</button><button onclick="document.getElementById('editUser_name').innerText = '${name}';document.getElementById('editModal').style.display = 'block';" class="btn btn-warning">✏</button></div></td>`
     tableContent.appendChild(row);
 }
 
