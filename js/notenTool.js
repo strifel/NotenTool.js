@@ -15,8 +15,19 @@ function setPoints(name, points) {
     document.getElementById('row_' + name + '_points').innerText = points
 }
 
-function calculateGrades(name) {
+function calculateAllGrades() {
+    tableContent.querySelectorAll('tr').forEach((row) => {
+        let name = row.getElementsByClassName('row_name')[0];
+        if (name) {
+            calculateGrades(name.innerText)
+        }
+    });
+}
 
+function calculateGrades(name) {
+    let points = parseInt(document.getElementById('row_' + name + '_points').innerText);
+    let percentage = Math.floor((100/maximumPoints)*points);
+    document.getElementById('row_' + name + '_grades').innerText = percentages[percentage]
 }
 function downloadData() {
     let link = document.createElement('a');
@@ -31,3 +42,5 @@ function downloadData() {
     link.click();
     document.body.removeChild(link);
 }
+
+
