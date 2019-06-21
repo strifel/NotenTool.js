@@ -1,6 +1,6 @@
 let chooser = document.getElementById('loadScheme');
 let points = document.getElementById('maxPoints');
-let maximumPoints = 0;
+let maximumPoints = points.value == null ? 0 : parseInt(points.value);
 let percentages = null;
 chooser.onchange = () => {
     points.disabled = false;

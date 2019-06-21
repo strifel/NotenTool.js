@@ -1,6 +1,7 @@
 let tableContent = document.getElementById('table');
 
 function addPupil(name) {
+    if (document.getElementById('row_' + name) !== null) return;
     let row = document.createElement('tr');
     row.id = 'row_' + name;
     row.innerHTML = `
@@ -25,6 +26,7 @@ function calculateAllGrades() {
 }
 
 function calculateGrades(name) {
+    if (maximumPoints == null || percentages == null) return;
     let points = parseInt(document.getElementById('row_' + name + '_points').innerText);
     let percentage = Math.floor((100/maximumPoints)*points);
     if (percentage > 100) {
