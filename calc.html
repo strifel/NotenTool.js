@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<button class="btn btn-success">Load grade scheme</button>
+<div class="input-group mb-3">
+    <input type="number" class="custom-number" id="maxPoints" min="0" placeholder="Points for 100%"><br>
+    <div class="custom-file">
+        <input class="custom-file-input" style="display: none;" accept=".ntt" type="file" id="loadScheme"><br>
+        <label for="loadScheme" class="custom-file-label">Load Scheme</label>
+    </div>
+</div>
 <li class="divider"></li>
 <div class="center">
     <table class="table table-striped">
@@ -16,8 +22,12 @@
             <td scope="col">Name</td>
             <td scope="col">Points</td>
             <td scope="col">Grade</td>
-            <td scope="col">Edit</td>
-            <td><div class="btn-group"><button class="btn btn-primary" onclick="document.getElementById('addModal').style.display = 'block';">+</button><button onclick="downloadData()" class="btn btn-primary">⇓</button></div></td>
+            <td scope="col">
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="document.getElementById('addModal').style.display = 'block';">+</button>
+                    <button onclick="downloadData()" class="btn btn-success">⇓</button>
+                </div>
+            </td>
         </tr>
         </thead>
         <tbody id="table">
