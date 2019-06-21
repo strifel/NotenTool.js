@@ -27,7 +27,12 @@ function calculateAllGrades() {
 function calculateGrades(name) {
     let points = parseInt(document.getElementById('row_' + name + '_points').innerText);
     let percentage = Math.floor((100/maximumPoints)*points);
-    document.getElementById('row_' + name + '_grades').innerText = percentages[percentage]
+    if (percentage > 100) {
+        percentage = 100;
+    }
+    if (percentages.hasOwnProperty(percentage)) {
+        document.getElementById('row_' + name + '_grades').innerText = percentages[percentage]
+    }
 }
 function downloadData() {
     let link = document.createElement('a');
