@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Noten Tool</title>
+    <link rel="stylesheet" href="css/snt.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="input-group mb-3">
+    <input type="number" class="custom-number" disabled id="maxPoints" min="0" placeholder="Points for 100%"><br>
+    <div class="custom-file">
+        <input class="custom-file-input" style="display: none;" accept=".ntt" type="file" id="loadScheme"><br>
+        <label for="loadScheme" class="custom-file-label">Load Scheme</label>
+    </div>
+</div>
+<div class="center">
+    <div id="outputTable">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td scope="row">Grade (points)</td>
+                <td scope="row">Until x points</td>
+            </tr>
+            </thead>
+            <tbody id="outputPoints">
+            <script>
+                const outputs = document.getElementById('outputPoints');
+                let outputHTML = '';
+                for (let grade = 15; grade >= 0; grade--) {
+                    outputHTML += '<tr><td>' + grade + '</td><td id="output_grade_' + grade + '"></td></tr>'
+                }
+                outputs.innerHTML = outputHTML;
+            </script>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="js/simpleNotenTool.js"></script>
+<script src="js/schemeChooser.js"></script>
+</body>
+</html>

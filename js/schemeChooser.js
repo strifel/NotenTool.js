@@ -2,6 +2,7 @@ let chooser = document.getElementById('loadScheme');
 let points = document.getElementById('maxPoints');
 let maximumPoints = points.value == null ? 0 : parseInt(points.value);
 let percentages = null;
+let gradePercentages = null;
 chooser.onchange = () => {
     points.disabled = false;
     let file = chooser.files[0];
@@ -11,10 +12,12 @@ chooser.onchange = () => {
     reader.onloadend = () => {
         let fileContent = reader.result;
         percentages = {};
+        gradePercentages = {};
         fileContent.split('\n').forEach((row) => {
             let cols = row.split(',');
             if (cols.length === 2) {
                 let points = parseInt(cols[0]);
+                gradePercentages[points] = parseInt(cols[1]);
                 for (let percentage = parseInt(cols[1]); percentage >= 0; percentage--) {
                     if (percentages.hasOwnProperty(percentage)) break;
                     percentages[percentage] = points;
