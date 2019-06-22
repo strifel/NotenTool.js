@@ -21,7 +21,13 @@ chooser.onchange = () => {
                 }
             }
         } );
-        calculateAllGrades();
+        if (percentages[100]) {
+            calculateAllGrades();
+        } else {
+            alert("Scheme is corrupt");
+            percentages = null;
+            gradePercentages = null;
+        }
     }
 };
 points.onchange = () => {

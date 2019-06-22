@@ -1,5 +1,9 @@
 function validatePercentage(grade) {
     let percentage = parseInt(document.getElementById("grade" + grade).value);
+    if (grade === 15) {
+        document.getElementById("grade15").value = "100";
+        return;
+    }
     if (grade !== 15 && percentage !== 100) {
         if (percentage > parseInt(document.getElementById("grade" + (grade + 1)).value)) {
             document.getElementById("grade" + (grade + 1)).value = (percentage + 1) + "";
