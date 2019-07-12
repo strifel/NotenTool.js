@@ -25,11 +25,13 @@ function validatePercentage(grade) {
 function downloadConfig() {
     let link = document.createElement('a');
     link.download = 'grades.ntt';
-    link.href = 'data:,';
+    let content = "";
     for (let grade = 0; grade <= 15; grade++) {
         let percentage = document.getElementById("grade" + grade).value;
-        link.href += grade + "," + percentage + (grade !== 15 ? "%0A" : "");
+        content += grade + "," + percentage + (grade !== 15 ? "%0A" : "");
     }
+    link.href = 'data:,' + content;
+    localStorage.setItem("currentScheme", content);
     document.body.append(link);
     link.click();
     document.body.removeChild(link);
